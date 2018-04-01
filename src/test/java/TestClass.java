@@ -1,6 +1,7 @@
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -9,10 +10,11 @@ public class TestClass {
     @Test
     public void TetovieM(){
 
-
-        WebDriver driver = new FirefoxDriver();
+        WebDriver driver = FactoryDriver.getDriver(EBrowser.fireFox);
+        //WebDriver driver = new FireFox().getDriver();
         driver.manage().window().maximize();
         driver.get("http://www.i.ua/");
+        WebElement test = driver.findElement(By.name("login"));
         driver.findElement(By.name("login")).click();
         driver.findElement(By.name("login")).clear();
         driver.findElement(By.name("login")).sendKeys("tvma");
